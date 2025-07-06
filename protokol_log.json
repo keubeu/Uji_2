@@ -14,16 +14,3 @@
   "status": "AKTIF",
   "tanggal_aktif": "2075-07-10"
 }
-
-{
-  "protokol": 03,
-  "judul": "Pemisahan Musuh & NPC",
-  "inti": "Entitas musuh dan karakter sipil tidak bisa ditentukan niatnya hingga berinteraksi.",
-  "aturan": [
-    "AI tidak mengungkap status moral karakter.",
-    "Hanya dialog dan aksi yang menjadi dasar pengenalan.",
-    "Penilaian akhir diserahkan ke tokoh utama."
-  ],
-  "status": "AKTIF",
-  "tanggal_aktif": "2075-07-10"
-}
