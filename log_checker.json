@@ -1,59 +1,24 @@
-const fs = require('fs');
-const path = require('path');
-
-const requiredLogs = [
-  { name: "story_log.json", type: "story", location: "logs/story/" },
-  { name: "event_log.json", type: "event", location: "logs/event/" },
-  { name: "status_log.json", type: "status", location: "logs/status/" },
-  { name: "map_log.json", type: "map", location: "logs/map/" },
-  { name: "tracking_log.json", type: "tracking", location: "logs/tracking/" },
-  { name: "research_log.json", type: "research", location: "logs/research/" },
-  { name: "timeline_log.json", type: "timeline", location: "logs/timeline/" },
-  { name: "inventory_log.json", type: "inventory", location: "logs/inventory/" },
-  { name: "01_musuh_alami.json", type: "protokol", location: "logs/protokol/" },
-  { name: "02_interaksi_karakter.json", type: "protokol", location: "logs/protokol/" }
-];
-
-function checkLogStatus(filePath) {
-  if (!fs.existsSync(filePath)) return "missing";
-
-  const content = fs.readFileSync(filePath, 'utf8');
-  if (content.trim() === "") return "empty";
-
-  try {
-    if (filePath.endsWith(".json")) JSON.parse(content);
-    return "valid";
-  } catch {
-    return "damaged";
-  }
+{
+  "logs": [
+    { "id": "01", "name": "story_log.twee", "type": "story" },
+    { "id": "02", "name": "timeline_log.json", "type": "timeline" },
+    { "id": "03", "name": "character_log.json", "type": "character" },
+    { "id": "04", "name": "decision_log.json", "type": "decision" },
+    { "id": "05", "name": "event_log.json", "type": "event" },
+    { "id": "06", "name": "map_log.json", "type": "map" },
+    { "id": "07", "name": "inventory_log.json", "type": "inventory" },
+    { "id": "08", "name": "battle_log.json", "type": "battle" },
+    { "id": "09", "name": "faction_log.json", "type": "faction" },
+    { "id": "10", "name": "diplomacy_log.json", "type": "diplomacy" },
+    { "id": "11", "name": "economy_log.json", "type": "economy" },
+    { "id": "12", "name": "espionage_log.json", "type": "espionage" },
+    { "id": "13", "name": "research_log.json", "type": "research" },
+    { "id": "14", "name": "tracking_log.json", "type": "tracking" },
+    { "id": "15", "name": "status_log.json", "type": "status" },
+    { "id": "16", "name": "protokol_log.json", "type": "protokol" },
+    { "id": "17", "name": "log_checker.json", "type": "meta" },
+    { "id": "18", "name": "log_viewer.html", "type": "viewer" },
+    { "id": "19", "name": "Summary.md", "type": "summary" },
+    { "id": "20", "name": "README.md", "type": "meta" }
+  ]
 }
-
-function generateLogChecker() {
-  const result = {
-    log_files: [],
-    last_global_check: new Date().toISOString(),
-    total_logs: requiredLogs.length,
-    missing_logs: 0,
-    damaged_logs: 0
-  };
-
-  for (const log of requiredLogs) {
-    const filePath = path.join(__dirname, log.location, log.name);
-    const status = checkLogStatus(filePath);
-
-    result.log_files.push({
-      name: log.name,
-      type: log.type,
-      location: log.location,
-      status: status,
-      last_checked: new Date().toISOString()
-    });
-
-    if (status === "missing") result.missing_logs++;
-    if (status === "damaged") result.damaged_logs++;
-  }
-
-  fs.writeFileSync('log_checker.json', JSON.stringify(result, null, 2));
-}
-
-generateLogChecker();
