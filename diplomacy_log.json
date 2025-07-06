@@ -1,1 +1,22 @@
-.
+{
+  "factions": [
+    {
+      "id": "fx001",
+      "name": "",
+      "type": "",
+      "diplomatic_status": "netral",
+      "last_contact": "",
+      "known_attitudes": {
+        "towards_us": "",
+        "our_attitude": ""
+      },
+      "interactions": [
+        {
+          "date": "",
+          "event": "",
+          "impact": ""
+        }
+      ]
+    }
+  ]
+}
