@@ -1,135 +1,26 @@
-{
-  "logs": [
-    {
-      "name": "story_log.json",
-      "type": "story",
-      "location": "logs/story/"
-    },
-    {
-      "name": "event_log.json",
-      "type": "event",
-      "location": "logs/event/"
-    },
-    {
-      "name": "status_log.json",
-      "type": "status",
-      "location": "logs/status/"
-    },
-    {
-      "name": "inventory_log.json",
-      "type": "inventory",
-      "location": "logs/inventory/"
-    },
-    {
-      "name": "map_log.json",
-      "type": "map",
-      "location": "logs/map/"
-    },
-    {
-      "name": "tracking_log.json",
-      "type": "tracking",
-      "location": "logs/tracking/"
-    },
-    {
-      "name": "trade_log.json",
-      "type": "trade",
-      "location": "logs/trade/"
-    },
-    {
-      "name": "research_log.json",
-      "type": "research",
-      "location": "logs/research/"
-    },
-    {
-      "name": "timeline_log.json",
-      "type": "timeline",
-      "location": "logs/timeline/"
-    },
-    {
-      "name": "01_musuh_alami.json",
-      "type": "protokol",
-      "location": "logs/protokol/"
-    },
-    {
-      "name": "02_interaksi_karakter.json",
-      "type": "protokol",
-      "location": "logs/protokol/"
-    }
-  ],
-  "note": "Ini adalah log_checker.json untuk cerita baru, bukan bagian dari Unity atau Arc sebelumnya. Tambahkan log baru secara bertahap ke daftar ini."
-}
-
-{
-  "log": [
-    {
-      "date": "2075-07-10",
-      "entry": "Tahun 2075. Dunia telah runtuh dalam kebisingan perang dan sunyi kehancuran. Kota-kota menjadi kerangka baja, jalanan menyatu dengan akar-akar hutan liar, dan langit kehilangan warnanya.\n\nDi antara reruntuhan itu, aku berjalan sendirian. Mencari sesuatu — mungkin harapan, mungkin tempat berlindung, atau sekadar alasan untuk terus bertahan.\n\nAku bukan siapa-siapa. Tapi aku tahu satu hal: jika aku tetap diam, aku akan musnah seperti mereka.\n\nDalam perjalanan, aku menemukan mereka. Orang-orang yang, meskipun terluka dan takut, masih menggenggam hidup. Kita tidak kenal satu sama lain, tapi semua ingin satu hal: tempat untuk mulai kembali."
-    }
-  ]
-}
-{
-  "log": [
-    {
-      "date": "2075-07-10",
-      "entry": "Tahun 2075. Dunia telah runtuh dalam kebisingan perang dan sunyi kehancuran. Kota-kota menjadi kerangka baja, jalanan menyatu dengan akar-akar hutan liar, dan langit kehilangan warnanya.\n\nDi antara reruntuhan itu, aku berjalan sendirian. Mencari sesuatu — mungkin harapan, mungkin tempat berlindung, atau sekadar alasan untuk terus bertahan.\n\nAku bukan siapa-siapa. Tapi aku tahu satu hal: jika aku tetap diam, aku akan musnah seperti mereka.\n\nDalam perjalanan, aku menemukan mereka. Orang-orang yang, meskipun terluka dan takut, masih menggenggam hidup. Kita tidak kenal satu sama lain, tapi semua ingin satu hal: tempat untuk mulai kembali."
-    }
-  ]
-}
-
-const fs = require('fs');
-const path = require('path');
-
-// Daftar log yang WAJIB ada
+const basePath = path.join(__dirname, 'logs');
 const requiredLogs = [
-  "story_log.twee",
-  "protokol_log.json",
-  "status_log.json",
-  "character_log.json",
-  "decision_log.json",
-  "map_log.json",
-  "economy_log.json",
-  "event_log.json"
+  { name: "story_log.json", type: "story" },
+  { name: "event_log.json", type: "event" },
+  { name: "status_log.json", type: "status" },
+  { name: "map_log.json", type: "map" },
+  { name: "tracking_log.json", type: "tracking" },
+  { name: "research_log.json", type: "research" },
+  { name: "timeline_log.json", type: "timeline" },
+  { name: "inventory_log.json", type: "inventory" }
 ];
 
-function checkLogStatus(file) {
-  const filePath = path.join(__dirname, file);
+function checkLogStatus(fileName) {
+  const filePath = path.join(basePath, fileName.split("_")[0], fileName);
   if (!fs.existsSync(filePath)) return "missing";
 
   const content = fs.readFileSync(filePath, 'utf8');
   if (content.trim() === "") return "empty";
 
   try {
-    if (file.endsWith(".json")) JSON.parse(content);
-    // TWEE check bisa ditambahkan custom
+    if (fileName.endsWith(".json")) JSON.parse(content);
     return "valid";
-  } catch (e) {
+  } catch {
     return "damaged";
   }
 }
-
-function generateLogChecker() {
-  const result = {
-    log_files: [],
-    last_global_check: new Date().toISOString(),
-    total_logs: requiredLogs.length,
-    missing_logs: 0,
-    damaged_logs: 0
-  };
-
-  for (const log of requiredLogs) {
-    const status = checkLogStatus(log);
-    result.log_files.push({
-      name: log,
-      type: log.replace("_log", "").replace(".json", "").replace(".twee", ""),
-      status: status,
-      last_checked: new Date().toISOString()
-    });
-
-    if (status === "missing") result.missing_logs++;
-    if (status === "damaged") result.damaged_logs++;
-  }
-
-  fs.writeFileSync('log_checker.json', JSON.stringify(result, null, 2));
-}
-
-generateLogChecker();
