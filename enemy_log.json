@@ -1,1 +1,11 @@
-.
+{
+  "summary": {
+    "date": "",
+    "total_income": 0,
+    "total_expense": 0,
+    "balance": 0
+  },
+  "transactions": [],
+  "markets": [],
+  "notes": ""
+}
