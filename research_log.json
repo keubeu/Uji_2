@@ -1,19 +1,21 @@
 {
   "research_projects": [
     {
-      "id": "r001",
-      "title": "Penelitian Tanaman Cepat Panen",
-      "status": "selesai / berjalan",
-      "category": "pertanian",
-      "date": "2075-07-06"
+      "id": "",
+      "title": "",
+      "status": "",              // "berjalan" | "selesai"
+      "progress": 0,             // Wajib jika status = "berjalan"
+      "category": "",            // Contoh: "pertanian", "biologi", "senjata", "energi"
+      "date": ""
     }
   ],
   "technologies": [
     {
-      "id": "t001",
-      "name": "Penyulingan Air Otomatis",
-      "unlocked_by": "r001",
-      "status": "aktif / prototipe"
+      "id": "",
+      "name": "",
+      "unlocked_by": "",         // ID riset yang membuka teknologi ini
+      "status": "",              // "prototipe" | "aktif"
+      "progress": 0              // Wajib jika status = "prototipe"
     }
   ]
 }
