@@ -1,4 +1,19 @@
 {
-  "projects": [],
-  "discoveries": []
+  "research_projects": [
+    {
+      "id": "r001",
+      "title": "Penelitian Tanaman Cepat Panen",
+      "status": "selesai / berjalan",
+      "category": "pertanian",
+      "date": "2075-07-06"
+    }
+  ],
+  "technologies": [
+    {
+      "id": "t001",
+      "name": "Penyulingan Air Otomatis",
+      "unlocked_by": "r001",
+      "status": "aktif / prototipe"
+    }
+  ]
 }
