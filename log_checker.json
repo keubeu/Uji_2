@@ -1,0 +1,12 @@
+{
+  "logs": [
+    { "name": "story_log_arc01.json", "type": "story", "location": "logs/story/" },
+    { "name": "01_musuh_alami.json", "type": "protokol", "location": "logs/protokol/" },
+    { "name": "status_log.json", "type": "status", "location": "logs/status/" },
+    { "name": "inventory_log.json", "type": "inventory", "location": "logs/inventory/" },
+    { "name": "timeline_log.json", "type": "timeline", "location": "logs/timeline/" },
+    { "name": "event_log.json", "type": "event", "location": "logs/event/" },
+    { "name": "map_log.json", "type": "map", "location": "logs/map/" },
+    { "name": "tracking_log.json", "type": "tracking", "location": "logs/tracking/" }
+  ]
+}
