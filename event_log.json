@@ -1,3 +1,11 @@
 {
-  "events": []
+  "date": "YYYY-MM-DD",
+  "time": "pagi/malam",
+  "title": "Judul singkat",
+  "description": "Penjelasan rinci peristiwa",
+  "impact": {
+    "timeline": true/false,
+    "status": true/false,
+    "note": "Keterangan tambahan"
+  }
 }
