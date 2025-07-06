@@ -1,4 +1,23 @@
 {
-  "movements": [],
-  "sightings": []
+  "date": "2075-07-10",
+  "movements": [
+    {
+      "id": "",
+      "actor": "",               // Contoh: "Komandan", "fig1", "kelompok tak dikenal"
+      "from": "",
+      "to": "",
+      "method": "",              // Contoh: "jalan kaki", "kendaraan", "tidak diketahui"
+      "note": ""
+    }
+  ],
+  "sightings": [
+    {
+      "id": "",
+      "location": "",
+      "type": "",                // Contoh: "makhluk", "manusia", "struktur", "kendaraan"
+      "description": "",
+      "reaction": "",            // Contoh: "menghindar", "mengamati", "tidak bereaksi"
+      "certainty": ""            // Contoh: "jelas", "kabur", "tidak pasti"
+    }
+  ]
 }
