@@ -1,1 +1,17 @@
-.
+{
+  "factions": [
+    {
+      "id": "",
+      "name": "",
+      "type": "",
+      "origin": "",
+      "status": "",
+      "alignment": "",
+      "leader": "",
+      "population_estimate": 0,
+      "notable_traits": [],
+      "last_contact": "",
+      "notes": ""
+    }
+  ]
+}
