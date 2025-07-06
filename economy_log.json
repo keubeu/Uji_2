@@ -1,1 +1,14 @@
-.
+{
+  "date": "--",
+  "summary": {
+    "income": 0,
+    "expenses": 0,
+    "balance": 0,
+    "notes": ""
+  },
+  "transactions": [],
+  "market": {
+    "prices": {},
+    "notes": ""
+  }
+}
