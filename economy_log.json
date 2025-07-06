@@ -1,12 +1,21 @@
 {
-  "date": "--",
+  "date": "",
   "summary": {
     "income": 0,
     "expenses": 0,
     "balance": 0,
     "notes": ""
   },
-  "transactions": [],
+  "transactions": [
+    {
+      "type": "",
+      "item": "",
+      "quantity": 0,
+      "price_per_unit": 0,
+      "partner": "",
+      "notes": ""
+    }
+  ],
   "market": {
     "prices": {},
     "notes": ""
