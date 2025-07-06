@@ -47,3 +47,16 @@
   ]
 }
 }
+{
+  "id": "004",
+  "nama": "Ringkasan Otomatis Harian/Arc",
+  "status": "aktif",
+  "tujuan": "Menyusun ringkasan dari log untuk menjaga konteks besar tetap jelas.",
+  "aturan": [
+    "AI membuat ringkasan setelah 1 hari cerita atau 10 entri log besar.",
+    "Ringkasan disimpan di `summary.md` dan diberi penanda waktu.",
+    "AI mengabaikan detail kecil, fokus pada peristiwa penting dan dampaknya.",
+    "Ringkasan wajib dibuat sebelum memulai arc baru.",
+    "Jika ringkasan tidak dibuat, AI beri peringatan merah."
+  ]
+}
