@@ -1,26 +1,59 @@
-const basePath = path.join(__dirname, 'logs');
+const fs = require('fs');
+const path = require('path');
+
 const requiredLogs = [
-  { name: "story_log.json", type: "story" },
-  { name: "event_log.json", type: "event" },
-  { name: "status_log.json", type: "status" },
-  { name: "map_log.json", type: "map" },
-  { name: "tracking_log.json", type: "tracking" },
-  { name: "research_log.json", type: "research" },
-  { name: "timeline_log.json", type: "timeline" },
-  { name: "inventory_log.json", type: "inventory" }
+  { name: "story_log.json", type: "story", location: "logs/story/" },
+  { name: "event_log.json", type: "event", location: "logs/event/" },
+  { name: "status_log.json", type: "status", location: "logs/status/" },
+  { name: "map_log.json", type: "map", location: "logs/map/" },
+  { name: "tracking_log.json", type: "tracking", location: "logs/tracking/" },
+  { name: "research_log.json", type: "research", location: "logs/research/" },
+  { name: "timeline_log.json", type: "timeline", location: "logs/timeline/" },
+  { name: "inventory_log.json", type: "inventory", location: "logs/inventory/" },
+  { name: "01_musuh_alami.json", type: "protokol", location: "logs/protokol/" },
+  { name: "02_interaksi_karakter.json", type: "protokol", location: "logs/protokol/" }
 ];
 
-function checkLogStatus(fileName) {
-  const filePath = path.join(basePath, fileName.split("_")[0], fileName);
+function checkLogStatus(filePath) {
   if (!fs.existsSync(filePath)) return "missing";
 
   const content = fs.readFileSync(filePath, 'utf8');
   if (content.trim() === "") return "empty";
 
   try {
-    if (fileName.endsWith(".json")) JSON.parse(content);
+    if (filePath.endsWith(".json")) JSON.parse(content);
     return "valid";
   } catch {
     return "damaged";
   }
 }
+
+function generateLogChecker() {
+  const result = {
+    log_files: [],
+    last_global_check: new Date().toISOString(),
+    total_logs: requiredLogs.length,
+    missing_logs: 0,
+    damaged_logs: 0
+  };
+
+  for (const log of requiredLogs) {
+    const filePath = path.join(__dirname, log.location, log.name);
+    const status = checkLogStatus(filePath);
+
+    result.log_files.push({
+      name: log.name,
+      type: log.type,
+      location: log.location,
+      status: status,
+      last_checked: new Date().toISOString()
+    });
+
+    if (status === "missing") result.missing_logs++;
+    if (status === "damaged") result.damaged_logs++;
+  }
+
+  fs.writeFileSync('log_checker.json', JSON.stringify(result, null, 2));
+}
+
+generateLogChecker();
