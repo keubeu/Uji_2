@@ -4,11 +4,11 @@
     {
       "id": "",
       "name": "",
-      "category": "",         // Contoh: "makanan", "senjata", "alat", "obat"
+      "category": "",
       "quantity": 0,
-      "condition": "",        // Contoh: "baik", "rusak", "hampir habis"
-      "origin": "",           // Contoh: "ditemukan", "bawaan", "hasil barter"
-      "location": ""          // Contoh: "Komandan", "wilayah X", "tidak diketahui"
+      "condition": "",
+      "origin": "",
+      "location": ""
     }
   ]
 }
