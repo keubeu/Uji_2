@@ -12,3 +12,17 @@
   "tanggal_aktif": "2075-07-10",
   "catatan": "Protokol ini menandai awal kisah baru di dunia yang telah hancur."
 }
+{
+  "protokol": 02,
+  "judul": "Sistem Interaksi Karakter Organik",
+  "isi": [
+    "Setiap karakter yang muncul dalam cerita tidak akan langsung diungkapkan sifat, niat, atau kemampuannya secara terbuka.",
+    "Pengenalan karakter hanya terjadi melalui interaksi, dialog, keputusan, dan peristiwa yang dialami oleh tokoh utama.",
+    "Informasi tentang karakter diperoleh secara bertahap melalui pengamatan, aksi, dan dialog — bukan dari deskripsi sistem.",
+    "Klasifikasi karakter (baik, jahat, penipu, netral) tidak akan ditetapkan oleh sistem.",
+    "Sistem hanya bertindak sebagai narator netral, tanpa menjatuhkan penilaian atas karakter yang muncul."
+  ],
+  "status": "AKTIF",
+  "tanggal_aktif": "2075-07-10",
+  "catatan": "Menciptakan pengalaman cerita yang realistis, raw, dan penuh eksplorasi emosional serta moral."
+}
