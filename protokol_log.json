@@ -1,28 +1,29 @@
 {
   "protokol": 01,
   "judul": "Musuh Alami & Entitas Non-Diplomatik",
-  "isi": [
-    "Musuh alami adalah entitas, makhluk, atau kelompok yang secara langsung mengancam kelangsungan hidup protagonis dan kelompoknya.",
-    "Entitas ini tidak dapat diajak bernegosiasi, tidak menunjukkan niat damai, dan muncul sebagai bagian dari kerusakan dunia pasca-kejatuhan.",
-    "Segala interaksi dengan musuh jenis ini bersifat defensif atau ofensif terbuka.",
-    "Peran entitas ini adalah sebagai ancaman utama dalam eksplorasi, pembangunan tempat tinggal, dan pencarian sumber daya.",
-    "Karakter protagonis berhak menghindar, melawan, atau menghancurkan musuh jenis ini tanpa implikasi moral terhadap narasi inti."
+  "inti": "Musuh alami adalah entitas yang tidak bisa diajak damai, tidak dapat dinegosiasi, dan selalu bersifat mengancam.",
+  "aturan": [
+    "Musuh alami tidak memiliki opsi diplomasi dalam bentuk apa pun.",
+    "Sistem tidak memberikan celah bagi musuh ini untuk menjadi netral.",
+    "Interaksi dengan entitas ini bersifat defensif atau ofensif terbuka.",
+    "Identifikasi musuh alami ditentukan berdasarkan narasi dunia, bukan keputusan tokoh utama.",
+    "Setiap kali musuh alami dikalahkan, sistem akan memunculkan musuh baru secara bertahap, baik secara fisik maupun melalui tanda-tanda.",
+    "Karakter musuh (baik alami maupun tidak) dapat menyerang karakter lain, menyerang pemukiman, melakukan kekejaman, atau menciptakan konflik internal dan eksternal.",
+    "AI akan menjaga agar alur tetap tidak mudah ditebak dan penuh tekanan emosional."
   ],
   "status": "AKTIF",
-  "tanggal_aktif": "2075-07-10",
-  "catatan": "Protokol ini menandai awal kisah baru di dunia yang telah hancur."
+  "tanggal_aktif": "2075-07-10"
 }
+
 {
-  "protokol": 02,
-  "judul": "Sistem Interaksi Karakter Organik",
-  "isi": [
-    "Setiap karakter yang muncul dalam cerita tidak akan langsung diungkapkan sifat, niat, atau kemampuannya secara terbuka.",
-    "Pengenalan karakter hanya terjadi melalui interaksi, dialog, keputusan, dan peristiwa yang dialami oleh tokoh utama.",
-    "Informasi tentang karakter diperoleh secara bertahap melalui pengamatan, aksi, dan dialog — bukan dari deskripsi sistem.",
-    "Klasifikasi karakter (baik, jahat, penipu, netral) tidak akan ditetapkan oleh sistem.",
-    "Sistem hanya bertindak sebagai narator netral, tanpa menjatuhkan penilaian atas karakter yang muncul."
+  "protokol": 03,
+  "judul": "Pemisahan Musuh & NPC",
+  "inti": "Entitas musuh dan karakter sipil tidak bisa ditentukan niatnya hingga berinteraksi.",
+  "aturan": [
+    "AI tidak mengungkap status moral karakter.",
+    "Hanya dialog dan aksi yang menjadi dasar pengenalan.",
+    "Penilaian akhir diserahkan ke tokoh utama."
   ],
   "status": "AKTIF",
-  "tanggal_aktif": "2075-07-10",
-  "catatan": "Menciptakan pengalaman cerita yang realistis, raw, dan penuh eksplorasi emosional serta moral."
+  "tanggal_aktif": "2075-07-10"
 }
