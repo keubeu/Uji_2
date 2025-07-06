@@ -60,3 +60,17 @@
     "Jika ringkasan tidak dibuat, AI beri peringatan merah."
   ]
 }
+
+{
+  "id": "005",
+  "nama": "Penyimpanan Berkala",
+  "status": "aktif",
+  "tujuan": "Menjamin keamanan data log dengan menyimpan salinan secara rutin ke repositori eksternal.",
+  "aturan": [
+    "Semua log disalin ke GitHub atau repositori lain secara berkala.",
+    "AI memberi peringatan setiap 60 menit atau setelah 15 entri log besar.",
+    "Folder repositori diberi nama sesuai dunia atau cerita.",
+    "Setiap penyimpanan diberi tag waktu atau nama sesi.",
+    "Peringatan merah muncul jika belum menyimpan dalam 2 sesi penuh."
+  ]
+}
