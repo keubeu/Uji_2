@@ -1,5 +1,29 @@
 {
-  "date": "",
-  "characters": [],
-  "resources": {}
+  "date": "2075-07-10",
+  "characters": [
+    {
+      "id": "fig1",
+      "status": "tidak dikenal",
+      "note": "Orang asing yang terlihat membawa tas medis. Belum berbicara."
+    },
+    {
+      "id": "fig2",
+      "status": "tidak dikenal",
+      "note": "Individu dengan senter rusak dan jaket rompi. Terlihat memperhatikan reruntuhan."
+    },
+    {
+      "id": "fig3",
+      "status": "tidak dikenal",
+      "note": "Membawa kotak besi kecil. Belum menunjukkan maksud."
+    }
+  ],
+  "resources": {
+    "air_bersih": 12,
+    "makanan_kaleng": 25,
+    "senjata_api": 2,
+    "peluru": 46,
+    "obat": 6,
+    "alat_rakit_sederhana": 1,
+    "bahan_bakar": 4
+  }
 }
