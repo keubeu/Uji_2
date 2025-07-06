@@ -14,3 +14,25 @@
   "status": "AKTIF",
   "tanggal_aktif": "2075-07-10"
 }
+
+{
+  "protokol": [
+    {
+      "id": "002",
+      "nama": "Otomatisasi & Pengingat Timeline",
+      "status": "aktif",
+      "tujuan": "Menjamin setiap perubahan waktu tercatat dan pengguna diingatkan menyimpan timeline.",
+      "aturan": [
+        "AI mencatat waktu saat `next` (malam) dan `go` (hari baru).",
+        "Jika 2 periode waktu terlewati tanpa penyimpanan, AI beri peringatan merah.",
+        "Peringatan tambahan muncul tiap 10 entri timeline.",
+        "AI wajib menyebutkan timeline yang disimpan pada akhir hari.",
+        "Jika tidak ada penyimpanan dalam 24 jam cerita, AI beri peringatan risiko kehilangan jejak waktu."
+      ],
+      "aktif_jika": [
+        "File `timeline_log.json` tersedia.",
+        "Sistem log harian sudah aktif."
+      ]
+    }
+  ]
+}
