@@ -1,1 +1,20 @@
-.
+{
+  "enemies": [
+    {
+      "name": "",
+      "type": "",
+      "threat_level": "",
+      "location": "",
+      "status": "",
+      "battle_history": [
+        {
+          "date": "",
+          "location": "",
+          "result": "",
+          "summary": ""
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}
