@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unity Log Viewer</title>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; color: #333; padding: 1rem; }
+    h1 { color: #2e6da4; }
+    .log-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .log-tabs button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #ccc;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .log-tabs button.active { background: #2e6da4; color: white; }
+    pre {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    input[type="file"] { margin-bottom: 1rem; }
+    .file-group { margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Unity Log Viewer</h1>
+
+  <div class="file-group">
+    <label>📂 Pilih file log JSON yang ingin ditampilkan:</label><br>
+    <input type="file" id="fileInput" accept=".json" multiple />
+  </div>
+
+  <div class="log-tabs" id="logTabs"></div>
+
+  <div id="logDisplay">
+    <pre id="logContent">📭 Belum ada log yang dimuat.</pre>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const logTabs = document.getElementById("logTabs");
+    const logContent = document.getElementById("logContent");
+    let logs = {};
+
+    fileInput.addEventListener("change", (event) => {
+      const files = Array.from(event.target.files);
+      logs = {};
+      logTabs.innerHTML = "";
+      logContent.textContent = "📭 Belum ada log yang dimuat.";
+
+      files.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          try {
+            const data = JSON.parse(e.target.result);
+            logs[file.name] = data;
+            const btn = document.createElement("button");
+            btn.textContent = file.name;
+            btn.onclick = () => {
+              document.querySelectorAll(".log-tabs button").forEach(b => b.classList.remove("active"));
+              btn.classList.add("active");
+              logContent.textContent = JSON.stringify(data, null, 2);
+            };
+            if (index === 0) btn.classList.add("active");
+            logTabs.appendChild(btn);
+            if (index === 0) logContent.textContent = JSON.stringify(data, null, 2);
+          } catch (err) {
+            alert("❌ Gagal membaca " + file.name + ": Format tidak valid.");
+          }
+        };
+        reader.readAsText(file);
+      });
+    });
+  </script>
+
+</body>
+</html>
