@@ -1,3 +1,14 @@
 {
-  "items": []
+  "date": "2075-07-10",
+  "items": [
+    {
+      "id": "",
+      "name": "",
+      "category": "",         // Contoh: "makanan", "senjata", "alat", "obat"
+      "quantity": 0,
+      "condition": "",        // Contoh: "baik", "rusak", "hampir habis"
+      "origin": "",           // Contoh: "ditemukan", "bawaan", "hasil barter"
+      "location": ""          // Contoh: "Komandan", "wilayah X", "tidak diketahui"
+    }
+  ]
 }
