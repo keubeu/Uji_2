@@ -1,1 +1,9 @@
-.
+{
+  "id": "d001",
+  "date": "YYYY-MM-DD",
+  "situation": "Deskripsi situasi keputusan",
+  "options": ["Opsi 1", "Opsi 2"],
+  "chosen_option": "Opsi yang dipilih",
+  "impact": "Dampak atau konsekuensi pilihan",
+  "affected_entities": ["nama_faksi", "karakter_terkait"]
+}
