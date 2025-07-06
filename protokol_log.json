@@ -34,5 +34,16 @@
         "Sistem log harian sudah aktif."
       ]
     }
+  ]{
+  "id": "003",
+  "nama": "Musuh, Diplomasi, dan Strategi",
+  "status": "aktif",
+  "tujuan": "Menyatukan pencatatan musuh, strategi, dan diplomasi dunia.",
+  "aturan": [
+    "Musuh dan konflik dicatat di `battle_log.json`.",
+    "Hubungan antar kelompok disimpan di `diplomacy_log.json`.",
+    "Keputusan strategis dicatat di `decision_log.json`.",
+    "AI wajib memberi ringkasan konflik dan hubungan tiap akhir hari."
   ]
+}
 }
