@@ -1,1 +1,14 @@
-.
+{
+  "protokol": 01,
+  "judul": "Musuh Alami & Entitas Non-Diplomatik",
+  "isi": [
+    "Musuh alami adalah entitas, makhluk, atau kelompok yang secara langsung mengancam kelangsungan hidup protagonis dan kelompoknya.",
+    "Entitas ini tidak dapat diajak bernegosiasi, tidak menunjukkan niat damai, dan muncul sebagai bagian dari kerusakan dunia pasca-kejatuhan.",
+    "Segala interaksi dengan musuh jenis ini bersifat defensif atau ofensif terbuka.",
+    "Peran entitas ini adalah sebagai ancaman utama dalam eksplorasi, pembangunan tempat tinggal, dan pencarian sumber daya.",
+    "Karakter protagonis berhak menghindar, melawan, atau menghancurkan musuh jenis ini tanpa implikasi moral terhadap narasi inti."
+  ],
+  "status": "AKTIF",
+  "tanggal_aktif": "2075-07-10",
+  "catatan": "Protokol ini menandai awal kisah baru di dunia yang telah hancur."
+}
