@@ -1,3 +1,14 @@
 {
-  "regions": []
+  "date": "2075-07-10",
+  "regions": [
+    {
+      "id": "",
+      "name": "",
+      "type": "",                // Contoh: "reruntuhan", "pos", "situs kunci"
+      "description": "",
+      "status": "",              // Contoh: "belum dijelajahi", "dikuasai", "berbahaya"
+      "known_resources": [],
+      "threat_level": ""         // Contoh: "rendah", "sedang", "tinggi", "tidak diketahui"
+    }
+  ]
 }
