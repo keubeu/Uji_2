@@ -1,76 +1,78 @@
 {
-  "protokol": 01,
-  "judul": "Musuh Alami & Entitas Non-Diplomatik",
-  "inti": "Musuh alami adalah entitas yang tidak bisa diajak damai, tidak dapat dinegosiasi, dan selalu bersifat mengancam.",
-  "aturan": [
-    "Musuh alami tidak memiliki opsi diplomasi dalam bentuk apa pun.",
-    "Sistem tidak memberikan celah bagi musuh ini untuk menjadi netral.",
-    "Interaksi dengan entitas ini bersifat defensif atau ofensif terbuka.",
-    "Identifikasi musuh alami ditentukan berdasarkan narasi dunia, bukan keputusan tokoh utama.",
-    "Setiap kali musuh alami dikalahkan, sistem akan memunculkan musuh baru secara bertahap, baik secara fisik maupun melalui tanda-tanda.",
-    "Karakter musuh (baik alami maupun tidak) dapat menyerang karakter lain, menyerang pemukiman, melakukan kekejaman, atau menciptakan konflik internal dan eksternal.",
-    "AI akan menjaga agar alur tetap tidak mudah ditebak dan penuh tekanan emosional."
-  ],
-  "status": "AKTIF",
-  "tanggal_aktif": "2075-07-10"
-}
-
-{
+  "versi": "2075.1",
+  "status": "aktif",
   "protokol": [
+    {
+      "id": "001",
+      "nama": "Musuh Alami & Entitas Non-Diplomatik",
+      "inti": "Musuh alami adalah entitas yang tidak bisa dinegosiasi, tidak bisa menjadi netral, dan selalu menjadi ancaman.",
+      "aturan": [
+        "Tidak tersedia opsi diplomasi dalam bentuk apa pun.",
+        "Interaksi bersifat defensif atau ofensif terbuka.",
+        "Sistem tidak memberikan celah untuk netralisasi.",
+        "Identifikasi musuh alami ditentukan oleh narasi, bukan tokoh utama.",
+        "Setiap kali musuh alami dikalahkan, sistem akan memunculkan musuh baru secara bertahap (fisik atau tanda-tanda).",
+        "Musuh dapat menyerang, menciptakan konflik internal/eksternal, atau melakukan kekejaman.",
+        "AI menjaga tensi naratif dengan tekanan emosional tinggi, tidak mudah ditebak."
+      ]
+    },
     {
       "id": "002",
       "nama": "Otomatisasi & Pengingat Timeline",
-      "status": "aktif",
-      "tujuan": "Menjamin setiap perubahan waktu tercatat dan pengguna diingatkan menyimpan timeline.",
+      "tujuan": "Menjamin pencatatan waktu berjalan otomatis dan timeline tidak terabaikan.",
       "aturan": [
-        "AI mencatat waktu saat `next` (malam) dan `go` (hari baru).",
-        "Jika 2 periode waktu terlewati tanpa penyimpanan, AI beri peringatan merah.",
-        "Peringatan tambahan muncul tiap 10 entri timeline.",
-        "AI wajib menyebutkan timeline yang disimpan pada akhir hari.",
-        "Jika tidak ada penyimpanan dalam 24 jam cerita, AI beri peringatan risiko kehilangan jejak waktu."
+        "AI mencatat waktu setiap perintah `next` (malam) atau `go` (hari baru).",
+        "Jika 2 periode waktu terlewati tanpa penyimpanan timeline → AI beri peringatan `[P-02]`.",
+        "Setiap 10 entri timeline → AI beri pengingat tambahan `[P-02]`.",
+        "Di akhir hari, AI menyebutkan status penyimpanan timeline."
       ],
       "aktif_jika": [
         "File `timeline_log.json` tersedia.",
-        "Sistem log harian sudah aktif."
+        "Sistem log harian aktif."
+      ]
+    },
+    {
+      "id": "003",
+      "nama": "Konflik, Diplomasi & Strategi",
+      "tujuan": "Mengintegrasikan pencatatan konflik, hubungan diplomatik, dan keputusan strategis.",
+      "aturan": [
+        "Semua konflik dicatat di `battle_log.json`.",
+        "Hubungan antar kelompok dicatat di `diplomacy_log.json`.",
+        "Keputusan strategis dicatat di `decision_log.json`.",
+        "AI wajib memberi ringkasan konflik & diplomasi setiap akhir hari.",
+        "Musuh alami tetap dicatat dalam `battle_log.json`, meski tanpa jalur diplomasi."
+      ]
+    },
+    {
+      "id": "004",
+      "nama": "Ringkasan Otomatis Harian / Arc",
+      "tujuan": "Menjaga konteks besar cerita tetap terstruktur dan tidak terputus.",
+      "aturan": [
+        "AI membuat ringkasan setelah 1 hari cerita atau setelah 10 entri log besar.",
+        "Ringkasan disimpan dalam `summary.md` dan diberi penanda waktu.",
+        "Ringkasan berisi: Peristiwa penting dari timeline, Ringkasan konflik & diplomasi, Dampak strategis atau emosional.",
+        "Ringkasan wajib dibuat sebelum memulai arc baru.",
+        "Jika terlewat → AI beri peringatan `[P-04]`."
+      ]
+    },
+    {
+      "id": "005",
+      "nama": "Penyimpanan Berkala Otomatis",
+      "tujuan": "Menjamin semua log tersimpan aman dan tidak hilang karena kelalaian.",
+      "aturan": [
+        "Semua log disalin secara berkala ke GitHub atau repositori lain.",
+        "AI memberi peringatan setiap 60 menit real-time atau setelah 15 entri log besar.",
+        "Folder repositori dinamai sesuai dunia/cerita.",
+        "Setiap penyimpanan dilabeli waktu/sesi (`session_tag`).",
+        "Jika belum menyimpan dalam 2 sesi penuh → AI beri peringatan merah `[P-05]`.",
+        "Penyimpanan tetap memerlukan konfirmasi pengguna jika sistem mendeteksi ringkasan belum selesai (sinkron dengan P-04)."
       ]
     }
-  ]{
-  "id": "003",
-  "nama": "Musuh, Diplomasi, dan Strategi",
-  "status": "aktif",
-  "tujuan": "Menyatukan pencatatan musuh, strategi, dan diplomasi dunia.",
-  "aturan": [
-    "Musuh dan konflik dicatat di `battle_log.json`.",
-    "Hubungan antar kelompok disimpan di `diplomacy_log.json`.",
-    "Keputusan strategis dicatat di `decision_log.json`.",
-    "AI wajib memberi ringkasan konflik dan hubungan tiap akhir hari."
-  ]
-}
-}
-{
-  "id": "004",
-  "nama": "Ringkasan Otomatis Harian/Arc",
-  "status": "aktif",
-  "tujuan": "Menyusun ringkasan dari log untuk menjaga konteks besar tetap jelas.",
-  "aturan": [
-    "AI membuat ringkasan setelah 1 hari cerita atau 10 entri log besar.",
-    "Ringkasan disimpan di `summary.md` dan diberi penanda waktu.",
-    "AI mengabaikan detail kecil, fokus pada peristiwa penting dan dampaknya.",
-    "Ringkasan wajib dibuat sebelum memulai arc baru.",
-    "Jika ringkasan tidak dibuat, AI beri peringatan merah."
-  ]
-}
-
-{
-  "id": "005",
-  "nama": "Penyimpanan Berkala",
-  "status": "aktif",
-  "tujuan": "Menjamin keamanan data log dengan menyimpan salinan secara rutin ke repositori eksternal.",
-  "aturan": [
-    "Semua log disalin ke GitHub atau repositori lain secara berkala.",
-    "AI memberi peringatan setiap 60 menit atau setelah 15 entri log besar.",
-    "Folder repositori diberi nama sesuai dunia atau cerita.",
-    "Setiap penyimpanan diberi tag waktu atau nama sesi.",
-    "Peringatan merah muncul jika belum menyimpan dalam 2 sesi penuh."
-  ]
+  ],
+  "penanda_peringatan": {
+    "P-02": "Pengingat Timeline",
+    "P-03": "Ringkasan Konflik & Diplomasi belum dibuat",
+    "P-04": "Ringkasan Harian/Arc belum dibuat",
+    "P-05": "Penyimpanan Berkala belum dilakukan"
+  }
 }
