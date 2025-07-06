@@ -1,1 +1,15 @@
-.
+{
+  "operations": [
+    {
+      "id": "",
+      "date": "",
+      "agent": "",
+      "target": "",
+      "objective": "",
+      "status": "",
+      "result": "",
+      "detected": false,
+      "notes": ""
+    }
+  ]
+}
