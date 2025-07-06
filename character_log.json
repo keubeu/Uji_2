@@ -1,10 +1,14 @@
 {
   "characters": [
     {
+      "id": "",
       "name": "",
       "role": "",
       "status": "",
       "origin": "",
+      "affiliation": "",
+      "skills": [],
+      "last_seen": "",
       "interactions": [
         {
           "date": "",
