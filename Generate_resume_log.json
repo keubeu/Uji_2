@@ -1,0 +1,122 @@
+import json import os from datetime import datetime
+
+List all log files
+
+LOG_FILES = [ "battle_log.json", "character_log.json", "decision_log.json", "diplomacy_log.json", "economy_log.json", "event_log.json", "faction_log.json", "inventory_log.json", "map_log.json", "protokol_log.json", "research_log.json", "status_log.json", "timeline_log.json", "tracking_log.json", "system_protokol.json" ]
+
+Load JSON safely
+
+def load_json(filename): try: with open(filename, "r", encoding="utf-8") as f: return json.load(f) except Exception as e: return None
+
+Generate resume session
+
+def generate_resume(): data = {} for log_file in LOG_FILES: content = load_json(log_file) if content: data[log_file] = content
+
+resume = {
+    "resume_session": {
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "summary": {},
+        "generated_by": "auto_resume_generator"
+    }
+}
+
+# CHARACTERS
+characters = data.get("character_log.json", [])
+status_log = data.get("status_log.json", [])
+wounded = [s for s in status_log if s.get("health", 100) < 100]
+resume["resume_session"]["summary"]["characters"] = {
+    "total": len(characters),
+    "notable_status": [
+        f"{len(wounded)} karakter dalam kondisi luka"
+    ]
+}
+
+# FACTIONS
+factions = data.get("faction_log.json", [])
+diplomacy = data.get("diplomacy_log.json", [])
+resume["resume_session"]["summary"]["factions"] = {
+    "total": len(factions),
+    "alliances": sum(1 for d in diplomacy if d.get("status") == "aliansi"),
+    "conflicts": sum(1 for d in diplomacy if d.get("status") == "perang")
+}
+
+# EVENTS
+events = data.get("event_log.json", [])
+resume["resume_session"]["summary"]["events"] = {
+    "total": len(events),
+    "latest_event": events[-1].get("title") if events else None
+}
+
+# TIMELINE
+timeline = data.get("timeline_log.json", [])
+timestamps = [e.get("datetime") for e in timeline if e.get("datetime")]
+if timestamps:
+    timestamps.sort()
+resume["resume_session"]["summary"]["timeline"] = {
+    "earliest": timestamps[0] if timestamps else None,
+    "latest": timestamps[-1] if timestamps else None,
+    "events_count": len(timeline)
+}
+
+# BATTLES
+battles = data.get("battle_log.json", [])
+resume["resume_session"]["summary"]["battles"] = {
+    "count": len(battles),
+    "last_battle": battles[-1].get("id") if battles else None
+}
+
+# RESEARCH
+research = data.get("research_log.json", [])
+resume["resume_session"]["summary"]["research"] = {
+    "ongoing": sum(1 for r in research if r.get("status") == "berjalan"),
+    "completed": sum(1 for r in research if r.get("status") == "selesai")
+}
+
+# ECONOMY
+economy = data.get("economy_log.json", [])
+resume["resume_session"]["summary"]["economy"] = {
+    "tracked_factions": len(set(e.get("faction_id") for e in economy if e.get("faction_id"))),
+    "top_resource": max(economy, key=lambda x: x.get("amount", 0)).get("resource") if economy else None
+}
+
+# INVENTORY
+inventory = data.get("inventory_log.json", [])
+resume["resume_session"]["summary"]["inventory"] = {
+    "items_tracked": len(inventory),
+    "owners": len(set(i.get("owner_id") for i in inventory))
+}
+
+# DECISIONS
+decisions = data.get("decision_log.json", [])
+resume["resume_session"]["summary"]["decisions"] = {
+    "count": len(decisions)
+}
+
+# PROTOKOL
+protokol = data.get("system_protokol.json", {})
+resume["resume_session"]["summary"]["protokol"] = {
+    "system_protocol_version": protokol.get("version"),
+    "status": "Aktif"
+}
+
+# TRACKING
+tracking = data.get("tracking_log.json", [])
+resume["resume_session"]["summary"]["tracking"] = {
+    "moving_subjects": len(tracking),
+    "latest_location": tracking[-1].get("location") if tracking else None
+}
+
+# MAP
+map_log = data.get("map_log.json", [])
+resume["resume_session"]["summary"]["map"] = {
+    "regions": len(map_log)
+}
+
+# Output file
+with open("resume_session.json", "w", encoding="utf-8") as f:
+    json.dump(resume, f, indent=2, ensure_ascii=False)
+
+print("✅ Resume berhasil dibuat: resume_session.json")
+
+if name == "main": generate_resume()
+
