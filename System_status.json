@@ -7,37 +7,3 @@
   "status": "stabil",
   "catatan": "Semua log tersedia dan sinkron dengan resume_log.json."
 }
-
-{
-  "sistem": "aktif",
-  "jumlah_log": 2,
-  "log_status": [
-    {
-      "log_id": "status_ab12cd",
-      "karakter_id": "k001",
-      "jenis": "lapar",
-      "dari": "normal",
-      "menjadi": "lapar",
-      "penyebab": "tidak_makan",
-      "arc": "arc01",
-      "timestamp": "2025-07-08T12:00:00Z",
-      "catatan": ""
-    },
-    {
-      "log_id": "status_ef34gh",
-      "karakter_id": "k001",
-      "jenis": "haus",
-      "dari": "normal",
-      "menjadi": "haus",
-      "penyebab": "cuaca_panas",
-      "arc": "arc01",
-      "timestamp": "2025-07-08T12:05:00Z",
-      "catatan": ""
-    }
-  ],
-  "log_terakhir_diperbarui": "2025-07-08T12:05:00Z",
-  "log_tidak_ditemukan": 0,
-  "sinkron": true,
-  "status": "stabil",
-  "catatan": "Log sistem baru dibuat."
-}
