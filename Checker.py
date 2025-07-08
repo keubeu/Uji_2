@@ -37,3 +37,27 @@ with open("status.json", "w") as out:
     json.dump(status, out, indent=2)
 
 print("✅ Log checker selesai. Hasil disimpan ke status.json")
+
+# === Simpan ke status.json ===
+with open("status.json", "w") as out:
+    json.dump(status, out, indent=2)
+
+# === Hitung status sistem ===
+total_log = len(log_files)
+missing_count = sum(1 for status in status.values() if status == "MISSING")
+outdated_count = sum(1 for status in status.values() if status == "OUTDATED")
+is_synced = (missing_count == 0 and outdated_count == 0)
+
+# === Buat system_status.json ===
+system_status = {
+    "sistem": "aktif",
+    "jumlah_log": total_log,
+    "log_terakhir_diperbarui": log_last,
+    "log_tidak_ditemukan": missing_count,
+    "sinkron": is_synced,
+    "status": "stabil" if is_synced else "terganggu",
+    "catatan": "Semua log valid dan sinkron." if is_synced else "Beberapa log hilang atau kedaluwarsa."
+}
+
+with open("system_status.json", "w") as sysfile:
+    json.dump(system_status, sysfile, indent=2)
