@@ -1,16 +1,16 @@
 {
-  "timeline": [
+  "date": "",
+  "period": "",
+  "events": [
     {
-      "date": "2075-07-08",
-      "period": "pagi",
-      "events": [],
-      "notes": ""
-    },
-    {
-      "date": "2075-07-08",
-      "period": "malam",
-      "events": [],
-      "notes": ""
+      "title": "",
+      "description": "",
+      "impact": {
+        "timeline": false,
+        "status": false,
+        "note": ""
+      }
     }
-  ]
+  ],
+  "notes": ""
 }
