@@ -1,57 +1,74 @@
-# 🌐 Unity Log System
+# 📘 Sistem Log Modular AI — Dunia Naratif Interaktif
 
-Sistem pencatatan dunia berbasis log modular.  
-Dirancang untuk mendukung cerita interaktif, simulasi strategi, dan manajemen dunia secara berlapis.
+## 📂 Deskripsi Proyek
 
-Semua log disimpan di dalam direktori: `/logs/`
-
----
-
-## 📚 Struktur File & Fungsi
-
-| No. | Nama File              | Fungsi                                                                 |
-|-----|------------------------|------------------------------------------------------------------------|
-| 01  | `story_log.twee`       | Narasi utama cerita dalam format Twine (Twee)                          |
-| 02  | `timeline_log.json`    | Catatan waktu harian: tanggal, pagi/malam, event                       |
-| 03  | `character_log.json`   | Data karakter: nama, peran, status, asal, interaksi                    |
-| 04  | `decision_log.json`    | Keputusan penting, opsi, dan konsekuensinya                             |
-| 05  | `event_log.json`       | Peristiwa besar, insiden, atau konflik                                 |
-| 06  | `map_log.json`         | Wilayah dunia, kontrol area, dan posisi strategis                      |
-| 07  | `inventory_log.json`   | Daftar item, alat, senjata, bahan, lokasi, dan kondisi                 |
-| 08  | `battle_log.json`      | Musuh, level ancaman, catatan pertempuran, status terkini              |
-| 09  | `faction_log.json`     | Data kelompok/faksi: nama, aliansi, kekuatan, pengaruh                  |
-| 10  | `diplomacy_log.json`   | Relasi antar faksi: status damai, netral, musuh                        |
-| 11  | `economy_log.json`     | Pemasukan, pengeluaran, transaksi, dan harga pasar                     |
-| 12  | `espionage_log.json`   | Operasi intelijen: target, hasil, tingkat deteksi                      |
-| 13  | `research_log.json`    | Proyek riset, progres (%), unlock teknologi                            |
-| 14  | `tracking_log.json`    | Pergerakan karakter, penampakan, jejak, pelacakan                      |
-| 15  | `status_log.json`      | Laporan populasi, makanan, produksi, grafik perubahan harian           |
-| 16  | `protokol_log.json`    | Daftar aturan sistem: musuh alami, diplomasi, penyimpanan otomatis     |
-| 17  | `log_checker.json`     | Validasi status semua log (missing, empty, valid, damaged)             |
-| 18  | `log_viewer.html`      | Penampil log interaktif berbasis browser                              |
-| 19  | `Summary.md`           | Ringkasan per arc: peristiwa penting, konflik, keputusan                |
-| 20  | `README.md`            | Dokumentasi sistem log ini                                             |
+Sistem ini adalah platform pencatatan modular menggunakan file JSON untuk mendukung dunia naratif interaktif. Semua log bersifat modular dan terstruktur agar dapat dibaca, dikelola, dan diperiksa oleh AI secara efisien.
 
 ---
 
-## 🧩 Prinsip Sistem
+## 📦 Struktur File Utama
 
-- **Modular**: Tiap aspek cerita/log dipisah dalam file berbeda
-- **Efisien**: Format JSON minimalis, ringan untuk AI & sistem pembaca
-- **Terbaca AI**: Semua log mengikuti struktur baku agar mudah diproses
-- **Interaktif**: Dukungan Twine (`.twee`) & visualisasi HTML (`log_viewer.html`)
+| File                   | Fungsi |
+|------------------------|--------|
+| `battle_log.json`      | Catatan pertempuran dan konflik |
+| `character_log.json`   | Status karakter (atribut, emosi, kondisi) |
+| `decision_log.json`    | Catatan keputusan penting |
+| `diplomacy_log.json`   | Hubungan antar faksi, diplomasi |
+| `economy_log.json`     | Ekonomi, sumber daya, dan keuangan |
+| `event_log.json`       | Daftar peristiwa penting |
+| `faction_log.json`     | Informasi tentang faksi atau kelompok |
+| `inventory_log.json`   | Inventaris dan item |
+| `map_log.json`         | Lokasi, wilayah, peta dunia |
+| `protokol_log.json`    | Protokol dunia non-sistem |
+| `research_log.json`    | Teknologi/penelitian dalam dunia |
+| `status_log.json`      | Kondisi umum dan status dunia |
+| `story_log.twee`       | Alur cerita dalam format Twee |
+| `timeline_log.json`    | Kronologi kejadian |
+| `tracking_log.json`    | Pelacakan pergerakan atau interaksi karakter |
 
 ---
 
-## 📦 Status Proyek
+## ⚙️ File Sistem & Kontrol
 
-🟢 **Struktur log lengkap.**  
-📄 Siap digunakan untuk simulasi cerita Unity atau sistem dunia sejenis.  
-✍️ Data dasar masih dalam pengisian awal.
+| File                    | Fungsi |
+|-------------------------|--------|
+| `System_protokol.json`  | Protokol sistem dan AI |
+| `System_status.json`    | Status sinkronisasi log |
+| `Resume_log.json`       | Ringkasan global log untuk AI |
+| `resume_session.log`    | Ringkasan sesi saat ini |
+| `Summary.md`            | Ringkasan manual dunia dan sistem |
+| `Log_checker.py`        | Pemeriksa konsistensi log |
+| `Index.html`            | Tampilan antarmuka log viewer |
+| `README.md`             | Dokumentasi proyek ini |
 
 ---
 
-## 📎 Lisensi
+## 🧠 Fitur Utama
 
-Proyek ini bersifat **pribadi** untuk pengelolaan cerita interaktif.  
-Tidak digunakan untuk distribusi publik tanpa izin eksplisit dari pengembang utama.
+- **Modular**: Setiap log berdiri sendiri, bisa diubah atau diganti kapan saja.
+- **AI-Friendly**: Format dan struktur kompatibel dengan sistem naratif AI.
+- **Auto Validation**: Log checker otomatis mendeteksi log hilang atau usang.
+- **Auto Resume**: AI dapat melanjutkan sesi narasi menggunakan `Resume_log.json`.
+
+---
+
+## 🚀 Cara Penggunaan
+
+1. Tambahkan atau ubah log sesuai format standar `.json`.
+2. Jalankan `Log_checker.py` untuk validasi otomatis.
+3. Gunakan `Index.html` untuk melihat log melalui UI.
+4. `Resume_log.json` dan `resume_session.log` digunakan oleh AI untuk melanjutkan sesi secara otomatis.
+
+---
+
+## ⚠️ Catatan Pengembangan
+
+- Selalu sertakan field `metadata` di setiap log.
+- Gunakan timestamp ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) untuk waktu.
+- Setelah perubahan manual, jalankan kembali `Log_checker.py`.
+
+---
+
+## ✍️ Dibuat oleh
+
+Lucu (?) — 2025
