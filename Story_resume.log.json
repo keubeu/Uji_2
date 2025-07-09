@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "file": "Resume_log.json",
+    "versi": "1.0",
+    "dibuat_oleh": "",
+    "dibuat_pada": "",
+    "deskripsi": "Template kosong untuk resume status dunia interaktif"
+  },
+  "sesi_terakhir": {
+    "waktu_terakhir_diperbarui": "",
+    "status_sistem": "",
+    "log_checker": "",
+    "viewer": "",
+    "log_terbaru": "",
+    "log_terlama": ""
+  },
+  "narasi_aktif": {
+    "arc": "",
+    "fokus": "",
+    "lokasi": "",
+    "ringkasan": "",
+    "catatan": ""
+  },
+  "status_karakter": {},
+  "tracking_karakter": {},
+  "lokasi_terakhir": {
+    "nama": "",
+    "kode": "",
+    "tipe": "",
+    "catatan": ""
+  },
+  "status_dunia": {
+    "cuaca": "",
+    "fase_hari": "",
+    "ancaman_terdekat": ""
+  },
+  "item": [],
+  "karakter": [],
+  "lokasi": [],
+  "kemampuan": [],
+  "inventaris_utama": [],
+  "catatan_prioritas": [],
+  "log_files": {
+    "utama": [],
+    "sistem": [],
+    "pendukung": []
+  },
+  "catatan": {
+    "perlu_perhatian": [],
+    "catatan_khusus": ""
+  }
+}
