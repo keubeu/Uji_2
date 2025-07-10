@@ -30,13 +30,31 @@ class NarasiValidator:
             "karakter_tidak_terdaftar": []
         }
 
-        # Validasi dummy — sesuaikan dengan struktur log riil
-        if "item rahasia" in teks and "item rahasia" not in str(self.log):
-            hasil["item_tidak_dikenali"].append("item rahasia")
-        if "di Kota Ajaib" in teks and "Kota Ajaib" not in str(self.log):
-            hasil["lokasi_tidak_valid"].append("Kota Ajaib")
-        if "Tokoh Misterius" in teks and "Tokoh Misterius" not in str(self.log):
-            hasil["karakter_tidak_terdaftar"].append("Tokoh Misterius")
+        # === Validasi dari data log asli ===
+        item_log = self.log.get("item", [])
+        lokasi_log = self.log.get("lokasi", [])
+        karakter_log = self.log.get("karakter", [])
+
+        # Validasi Item
+        for item in self._temukan_kandidat(teks):
+            if item.lower() not in [i.lower() for i in item_log]:
+                hasil["item_tidak_dikenali"].append(item)
+
+        # Validasi Lokasi
+        for lokasi in lokasi_log:
+            if lokasi in teks:
+                break
+        else:
+            hasil["lokasi_tidak_valid"].append("Tidak ditemukan lokasi yang sah dalam narasi.")
+
+        # Validasi Karakter
+        ditemukan = False
+        for karakter in karakter_log:
+            if karakter in teks:
+                ditemukan = True
+                break
+        if not ditemukan:
+            hasil["karakter_tidak_terdaftar"].append("Tidak ditemukan karakter valid.")
 
         if any(hasil.values()):
             logger.warning("❌ Validasi gagal: %s", json.dumps(hasil, ensure_ascii=False))
@@ -44,6 +62,15 @@ class NarasiValidator:
             logger.info("✅ Narasi valid terhadap log dunia.")
 
         return hasil
+
+    def _temukan_kandidat(self, teks):
+        # Sederhana: ambil kata setelah "item" jika ada
+        kata = []
+        potongan = teks.split()
+        for i, w in enumerate(potongan):
+            if w.lower() == "item" and i+1 < len(potongan):
+                kata.append(f"{w} {potongan[i+1]}")
+        return kata
 
 
 # === Penegak Protokol Sistem Naratif ===
@@ -59,8 +86,16 @@ class SystemProtocolEnforcer:
             "Menerapkan timestamp ISO 8601 pada setiap peristiwa"
         ]
 
-    def periksa_kepatuhan(self, konteks: str) -> bool:
-        pelanggaran = [aturan for aturan in self.protokol_utama if aturan not in konteks]
+    def periksa_kepatuhan(self, narasi: str) -> bool:
+        pelanggaran = []
+
+        # Deteksi struktural (bukan sekadar string)
+        if "log diperbarui" not in narasi.lower():
+            pelanggaran.append("Transparansi dalam setiap pembaruan log")
+        if "T" not in narasi and "Z" not in narasi:
+            pelanggaran.append("Menerapkan timestamp ISO 8601 pada setiap peristiwa")
+        if "perintah" not in narasi.lower() and "instruksi" not in narasi.lower():
+            pelanggaran.append("Mendahulukan instruksi pengguna yang eksplisit")
 
         if pelanggaran:
             self._catat_peringatan(pelanggaran)
@@ -78,6 +113,10 @@ class SystemProtocolEnforcer:
         }
         self.riwayat_peringatan.append(pesan)
         logger.error("⚠️ Pelanggaran protokol oleh [%s]: %s", self.nama_modul, daftar_pelanggaran)
+
+        # Simpan ke peringatan_ai.json secara otomatis
+        with open("peringatan_ai.json", "w", encoding="utf-8") as f:
+            json.dump(self.riwayat_peringatan, f, indent=2, ensure_ascii=False)
 
     def tampilkan_riwayat(self):
         return self.riwayat_peringatan
