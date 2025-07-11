@@ -2,13 +2,13 @@
 
 ## 🌐 Ringkasan Dunia dan Sistem Log Modular
 
-Proyek ini adalah sistem log naratif interaktif berbasis modular, yang memisahkan setiap aspek dunia ke dalam log spesifik untuk mendukung fleksibilitas, skalabilitas, dan keterbacaan oleh AI.
+[Deskripsi umum tentang sistem dan tujuan penggunaannya.]
 
 ---
 
 ## 📖 Narasi Dunia (Singkat)
 
-Sebuah dunia dinamis terbagi ke dalam faksi-faksi, karakter utama dan pendukung, peristiwa besar, dan konflik terbuka. Dunia ini berkembang berdasarkan keputusan yang diambil pemain dan AI narator, serta interaksi antar log (karakter, diplomasi, ekonomi, dsb).
+[Deskripsikan latar dunia: konflik utama, kondisi faksi, batas kekuasaan, status global, dan arah cerita.]
 
 ---
 
@@ -16,48 +16,49 @@ Sebuah dunia dinamis terbagi ke dalam faksi-faksi, karakter utama dan pendukung,
 
 ### 1. **Karakter**
 - Tersimpan di: `character_log.json`
-- Mencakup: Nama, latar belakang, kondisi fisik dan mental, loyalitas, status emosi, dan hubungan.
+- Mencakup: [Isi — nama, latar belakang, kondisi fisik/mental, emosi, relasi, dll.]
 
 ### 2. **Faksi & Diplomasi**
 - Tersimpan di: `faction_log.json`, `diplomacy_log.json`
-- Menyimpan struktur, kekuatan, hubungan, perjanjian, dan konflik antar kelompok.
+- Mencakup: [Struktur faksi, afiliasi, hubungan antar kelompok, konflik diplomatik.]
 
 ### 3. **Pertempuran & Keputusan**
 - Tersimpan di: `battle_log.json`, `decision_log.json`
-- Semua konflik tempur dan keputusan penting yang memengaruhi alur cerita.
+- Mencakup: [Konflik bersenjata, duel, dan keputusan penting dalam narasi.]
 
 ### 4. **Ekonomi & Inventaris**
 - Tersimpan di: `economy_log.json`, `inventory_log.json`
-- Informasi tentang aset, sumber daya, item, serta transaksi ekonomi.
+- Mencakup: [Sumber daya, barang, kekayaan, dan manajemen aset.]
 
 ### 5. **Peta & Pelacakan**
 - Tersimpan di: `map_log.json`, `tracking_log.json`
-- Lokasi karakter, pergerakan, dan struktur dunia yang terekam secara spasial.
+- Mencakup: [Wilayah, lokasi karakter, pengaruh teritorial, dan pergerakan.]
 
 ### 6. **Event & Timeline**
 - Tersimpan di: `event_log.json`, `timeline_log.json`
-- Semua peristiwa besar dan kronologi waktu secara linear.
+- Mencakup: [Peristiwa penting, urutan waktu, dan titik balik cerita.]
 
 ### 7. **Ceritanya Sendiri**
 - Tersimpan di: `story_log.twee`
-- Format naratif cabang interaktif (Twine/Twee) sebagai kerangka cerita utama.
+- Mencakup: [Struktur cerita cabang interaktif berbasis Twee (Twine).]
 
 ---
 
 ## ⚙️ Sistem & Validasi
 
 ### 🔧 File Sistem
-- `System_protokol.json`: Protokol AI dan sistem pengatur perilaku log.
-- `System_status.json`: Status terkini sinkronisasi dan keberadaan semua log.
+- `System_protokol.json`: [Protokol AI internal dan aturan sistem naratif.]
+- `System_status.json`: [Status sinkronisasi log aktif.]
+- `Status_log_system.json`: [Status dan integritas sistem runtime.]
 
 ### 📊 File Ringkasan
-- `Resume_log.json`: Ringkasan menyeluruh untuk memuat ulang sesi AI.
-- `resume_session.log`: Versi human-readable dari resume.
-- `Summary.md`: Dokumen ini, sebagai pengingat sistem untuk pengembang/manajer dunia.
+- `Resume_log.json`: [Ringkasan semua log penting — digunakan oleh AI untuk melanjutkan sesi.]
+- `resume_session.log`: [Ringkasan sesi aktif — versi untuk manusia.]
+- `Summary.md`: [Dokumen manual ini — panduan teknis sistem log.]
 
 ### 🧪 Pemeriksa & Antarmuka
-- `Log_checker.py`: Memeriksa status log (hilang, outdated, rusak).
-- `Index.html`: Tampilan log viewer untuk manusia.
+- `Log_checker.py`: [Script pemeriksa konsistensi log secara otomatis.]
+- `Index.html`: [UI untuk menampilkan dan membaca semua log.]
 
 ---
 
