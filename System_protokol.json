@@ -34,6 +34,40 @@
         "pemfilteran entitas dan peristiwa",
         "pembentukan konflik dan resolusi"
       ]
+    },
+    "protokol_naratif_waktu": {
+      "deskripsi": "Protokol transisi waktu dalam narasi yang dikontrol oleh perintah sistem untuk mengatur tempo alur cerita secara logis dan realis.",
+      "daftar": [
+        {
+          "kode": "N",
+          "nama": "Menuju Malam",
+          "jenis": "transisi_waktu",
+          "aksi": "lewati",
+          "efek": "Mengubah konteks waktu ke malam.",
+          "konsekuensi": [
+            "update_resume",
+            "timestamped",
+            "ubah_konteks_waktu:malam"
+          ],
+          "required_fields": ["timestamp", "executed_by"],
+          "catatan": "Digunakan untuk mempercepat waktu ke malam hari secara naratif."
+        },
+        {
+          "kode": "G",
+          "nama": "Menuju Pagi/Hari Baru",
+          "jenis": "transisi_waktu",
+          "aksi": "lewati",
+          "efek": "Mengubah konteks waktu ke pagi atau hari selanjutnya.",
+          "konsekuensi": [
+            "update_resume",
+            "timestamped",
+            "tambahkan_hari",
+            "ubah_konteks_waktu:pagi"
+          ],
+          "required_fields": ["timestamp", "executed_by"],
+          "catatan": "Digunakan untuk berpindah ke hari baru atau memulai pagi dalam cerita."
+        }
+      ]
     }
   },
   "required_fields": {
