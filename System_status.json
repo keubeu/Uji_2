@@ -9,7 +9,7 @@
       "dari": "normal",
       "menjadi": "lapar",
       "penyebab": "tidak_makan",
-      "arc": "arc02",
+      "arc": "arc01",
       "timestamp": "2025-07-08T14:00:00Z",
       "catatan": ""
     },
@@ -20,7 +20,7 @@
       "dari": "normal",
       "menjadi": "haus",
       "penyebab": "cuaca_panas",
-      "arc": "arc02",
+      "arc": "arc01",
       "timestamp": "2025-07-08T14:05:00Z",
       "catatan": ""
     }
