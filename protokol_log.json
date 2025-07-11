@@ -1,14 +1,68 @@
-{
-  "id": "001",
-  "nama": "Musuh Alami & Entitas Non-Diplomatik",
-  "inti": "Musuh alami adalah entitas yang tidak bisa dinegosiasi, tidak bisa menjadi netral, dan selalu menjadi ancaman.",
-  "aturan": [
-    "Tidak tersedia opsi diplomasi dalam bentuk apa pun.",
-    "Interaksi bersifat defensif atau ofensif terbuka.",
-    "Sistem tidak memberikan celah untuk netralisasi.",
-    "Identifikasi musuh alami ditentukan oleh narasi, bukan tokoh utama.",
-    "Setiap kali musuh alami dikalahkan, sistem akan memunculkan musuh baru secara bertahap (fisik atau tanda-tanda).",
-    "Musuh dapat menyerang, menciptakan konflik internal/eksternal, atau melakukan kekejaman.",
-    "AI menjaga tensi naratif dengan tekanan emosional tinggi, tidak mudah ditebak."
-  ]
-}
+[
+  {
+    "id": "001",
+    "jenis": "musuh_alami",
+    "nama": "Musuh Alami & Entitas Non-Diplomatik",
+    "kategori": "ancaman_berkelanjutan",
+    "basis": "realitas",
+    "keterangan": "Entitas manusia atau hewan yang bertindak sebagai ancaman permanen dan tidak bisa diajak damai. Tidak mencakup makhluk fiktif.",
+    "protokol": {
+      "diplomasi": {
+        "status": "dilarang_total",
+        "berlaku_untuk": "hanya musuh alami",
+        "catatan": "Diplomasi tetap diperbolehkan untuk entitas lain yang bukan musuh alami."
+      },
+      "netralisasi": "tidak tersedia",
+      "interaksi": ["defensif", "ofensif terbuka"],
+      "penetapan_musuh": "ditentukan oleh sistem naratif, bukan tokoh utama",
+      "siklus_ancaman": "musuh baru muncul bertahap setelah yang lama dikalahkan",
+      "aksi_musuh": ["serangan langsung", "provokasi konflik", "kekejaman terbuka"],
+      "tensi": "tinggi dan tidak mudah ditebak",
+      "bentuk_entitas": ["manusia", "hewan"],
+      "karakteristik_manusia": {
+        "musuh": "penuh niat kehancuran",
+        "lainnya": "tidak semua manusia musuh; ada yang baik dan netral"
+      },
+      "catatan": "Musuh alami bersifat selektif. Semua entitas berasal dari dunia nyata."
+    }
+  },
+  {
+    "id": "D001",
+    "jenis": "protokol_diplomasi",
+    "nama": "Diplomasi Umum",
+    "kategori": "interaksi_sosial",
+    "basis": "realitas",
+    "keterangan": "Aturan diplomasi untuk entitas non-musuh-alami. Mewakili dinamika sosial dan politik dunia nyata.",
+    "protokol": {
+      "berlaku_untuk": ["manusia", "kelompok sosial", "otoritas sipil", "organisasi", "hewan tertentu (kontekstual)"],
+      "diplomasi_diperbolehkan": true,
+      "bentuk_interaksi": [
+        "negosiasi",
+        "kerja sama",
+        "konflik yang bisa diredakan",
+        "kesepakatan pragmatis",
+        "penyelesaian damai"
+      ],
+      "respon_bervariasi": {
+        "kondisional": true,
+        "dipengaruhi_oleh": [
+          "sejarah hubungan",
+          "kebutuhan masing-masing",
+          "situasi krisis",
+          "reputasi tokoh utama",
+          "tekanan eksternal"
+        ]
+      },
+      "potensi_dinamika": [
+        "musuh bisa menjadi sekutu",
+        "sekutu bisa menjadi ancaman",
+        "entitas netral bisa terdorong memilih sisi"
+      ],
+      "pengecualian": {
+        "tidak_berlaku_untuk": "musuh alami",
+        "catatan": "Musuh alami tetap tunduk pada protokol tanpa diplomasi"
+      },
+      "catatan": "Diplomasi adalah bagian penting dari dunia realistis dan memungkinkan fleksibilitas naratif."
+    }
+  }
+]
