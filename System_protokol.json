@@ -1,6 +1,41 @@
 {
+  "id": "S000",
   "version": "1.0",
-  "description": "Standar protokol validasi sistem log naratif dunia modular",
+  "nama": "Protokol Sistem Naratif Realistis",
+  "kategori": "sistem_global",
+  "deskripsi": "Protokol dasar yang mengatur batas dunia, interaksi, validasi log, dan sumber konflik secara global. Wajib dipatuhi oleh semua subsistem naratif dan logika AI.",
+  "protokol": {
+    "realitas_dunia": {
+      "basis": "dunia nyata",
+      "larangan_khusus": [
+        "sihir",
+        "makhluk mitologi",
+        "entitas supranatural",
+        "alien",
+        "teknologi fiktif",
+        "dimensi paralel",
+        "perjalanan waktu non-linear"
+      ],
+      "entitas_diperbolehkan": [
+        "manusia",
+        "hewan nyata",
+        "organisasi nyata",
+        "lingkungan bumi"
+      ]
+    },
+    "interaksi": {
+      "aturan_umum": ["berbasis kenyataan", "emosional dan rasional secara manusiawi"],
+      "klasifikasi_interaksi": ["diplomasi_umum", "musuh_alami"]
+    },
+    "penegakan": {
+      "sifat": "wajib",
+      "pengaruh": [
+        "semua log dan modul AI",
+        "pemfilteran entitas dan peristiwa",
+        "pembentukan konflik dan resolusi"
+      ]
+    }
+  },
   "required_fields": {
     "battle_log.json": ["id", "attacker_id", "defender_id", "outcome"],
     "character_log.json": ["id", "name", "status"],
@@ -11,12 +46,12 @@
     "faction_log.json": ["id", "name", "leader_id"],
     "inventory_log.json": ["id", "owner_id", "item_name", "quantity"],
     "map_log.json": ["id", "region_name", "status"],
-    "protokol_log.json": ["id", "jenis", "konten"],
+    "protokol_log.json": ["id", "jenis", "nama", "kategori", "protokol"],
+    "protokol_sistem.json": ["id", "version", "nama", "kategori", "deskripsi", "protokol", "required_fields", "relations"],
     "research_log.json": ["id", "faction_id", "tech", "status"],
     "status_log.json": ["id", "character_id", "health", "stamina"],
     "timeline_log.json": ["event_id", "datetime"],
-    "tracking_log.json": ["id", "subject_id", "location", "timestamp"],
-    "system_protokol.json": ["version", "required_fields"]
+    "tracking_log.json": ["id", "subject_id", "location", "timestamp"]
   },
   "relations": {
     "event_to_character": {
