@@ -1,0 +1,33 @@
+{
+  "sistem": "aktif",
+  "jumlah_log": 2,
+  "log_status": [
+    {
+      "log_id": "status_abc123",
+      "karakter_id": "k001",
+      "jenis": "lapar",
+      "dari": "normal",
+      "menjadi": "lapar",
+      "penyebab": "tidak_makan",
+      "arc": "arc01",
+      "timestamp": "2025-07-08T14:00:00Z",
+      "catatan": ""
+    },
+    {
+      "log_id": "status_def456",
+      "karakter_id": "k001",
+      "jenis": "haus",
+      "dari": "normal",
+      "menjadi": "haus",
+      "penyebab": "cuaca_panas",
+      "arc": "arc01",
+      "timestamp": "2025-07-08T14:05:00Z",
+      "catatan": ""
+    }
+  ],
+  "log_terakhir_diperbarui": "2025-07-08T14:05:00Z",
+  "log_tidak_ditemukan": 0,
+  "sinkron": true,
+  "status": "stabil",
+  "catatan": "Log sistem baru dibuat."
+}
