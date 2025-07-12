@@ -2,13 +2,17 @@
 
 ## 🌐 Ringkasan Dunia dan Sistem Log Modular
 
-[Deskripsi umum tentang sistem dan tujuan penggunaannya.]
+Sistem ini adalah framework naratif realistis berbasis log modular. Setiap aspek dunia (karakter, konflik, diplomasi, waktu, status) dicatat secara terpisah, memungkinkan kesinambungan cerita dan interaksi AI secara otomatis.
 
 ---
 
 ## 📖 Narasi Dunia (Singkat)
 
-[Deskripsikan latar dunia: konflik utama, kondisi faksi, batas kekuasaan, status global, dan arah cerita.]
+Dunia sedang berada dalam masa pasca-kejatuhan, setelah keruntuhan sistem pemerintahan global. Faksi-faksi lokal mulai muncul untuk merebut wilayah dan sumber daya. Teknologi bertahan, tetapi kendali informasi dan kekuasaan tersebar. Konteks realistis tanpa makhluk fiksi, hanya manusia, hewan, dan sumber daya nyata.
+
+Waktu naratif dibagi menjadi:
+- `G` (Gelap → Malam)
+- `N` (N terang → Siang/Pagi)
 
 ---
 
@@ -16,60 +20,39 @@
 
 ### 1. **Karakter**
 - Tersimpan di: `character_log.json`
-- Mencakup: [Isi — nama, latar belakang, kondisi fisik/mental, emosi, relasi, dll.]
+- Dilengkapi dengan `Status_karakter.json` (kesehatan, moral, lokasi)
 
-### 2. **Faksi & Diplomasi**
-- Tersimpan di: `faction_log.json`, `diplomacy_log.json`
-- Mencakup: [Struktur faksi, afiliasi, hubungan antar kelompok, konflik diplomatik.]
+### 2. **Faksi**
+- Tersimpan di: `faction_log.json`
+- Hubungan politik antar faksi: `diplomacy_log.json`
 
-### 3. **Pertempuran & Keputusan**
-- Tersimpan di: `battle_log.json`, `decision_log.json`
-- Mencakup: [Konflik bersenjata, duel, dan keputusan penting dalam narasi.]
+### 3. **Pertempuran & Misi**
+- Catatan pertempuran: `battle_log.json`
+- Keputusan penting: `decision_log.json`
+- Pergerakan unit: `tracking_log.json`
 
 ### 4. **Ekonomi & Inventaris**
-- Tersimpan di: `economy_log.json`, `inventory_log.json`
-- Mencakup: [Sumber daya, barang, kekayaan, dan manajemen aset.]
+- Kekayaan & perdagangan: `economy_log.json`
+- Barang dan senjata: `inventory_log.json`
 
-### 5. **Peta & Pelacakan**
-- Tersimpan di: `map_log.json`, `tracking_log.json`
-- Mencakup: [Wilayah, lokasi karakter, pengaruh teritorial, dan pergerakan.]
+### 5. **Pengetahuan & Riset**
+- Peristiwa: `event_log.json`
+- Penemuan & eksperimen: `research_log.json`
 
-### 6. **Event & Timeline**
-- Tersimpan di: `event_log.json`, `timeline_log.json`
-- Mencakup: [Peristiwa penting, urutan waktu, dan titik balik cerita.]
+### 6. **Waktu dan Protokol**
+- Transisi waktu: `timeline_log.json`
+- Protokol global: `System_protokol.json`
+- Sinkronisasi antar sistem: `protokol_log.json`
+- Status sistem naratif: `Sistem_status_log.json`
 
-### 7. **Ceritanya Sendiri**
-- Tersimpan di: `story_log.twee`
-- Mencakup: [Struktur cerita cabang interaktif berbasis Twee (Twine).]
-
----
-
-## ⚙️ Sistem & Validasi
-
-### 🔧 File Sistem
-- `System_protokol.json`: [Protokol AI internal dan aturan sistem naratif.]
-- `System_status.json`: [Status sinkronisasi log aktif.]
-- `Status_log_system.json`: [Status dan integritas sistem runtime.]
-
-### 📊 File Ringkasan
-- `Resume_log.json`: [Ringkasan semua log penting — digunakan oleh AI untuk melanjutkan sesi.]
-- `resume_session.log`: [Ringkasan sesi aktif — versi untuk manusia.]
-- `Summary.md`: [Dokumen manual ini — panduan teknis sistem log.]
-
-### 🧪 Pemeriksa & Antarmuka
-- `Log_checker.py`: [Script pemeriksa konsistensi log secara otomatis.]
-- `Index.html`: [UI untuk menampilkan dan membaca semua log.]
+### 7. **Narasi & Resume**
+- Ringkasan cerita aktif: `Story_resume.log.json`
+- Narasi interaktif (Twine): `story_log.twee`
 
 ---
 
-## 🔄 Alur Sistem
-
-```mermaid
-flowchart TD
-    start((Awal Sesi)) --> load[Load Resume_log.json]
-    load --> check[Log_checker.py]
-    check --> viewer[Index.html / Manual]
-    viewer --> ai[AI Narasi Jalan]
-    ai --> update[Update log masing-masing]
-    update --> save[Simpan ke Resume_log.json lagi]
-    save --> end((Sesi Berikutnya))
+## ✅ Validasi
+Semua log diperiksa otomatis via `Log_checker.py` untuk memastikan:
+- Format konsisten
+- Field wajib ada (`id`, `timestamp`, `narrative_time`, `type`)
+- Timestamp dalam format ISO8601
