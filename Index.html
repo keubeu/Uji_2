@@ -1,38 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log Checker Viewer</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 Naratif Log Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      padding: 2em;
+    }
+    h1 {
+      color: #9acd32;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-mono p-6">
-  <h1 class="text-3xl mb-4">📊 Log Checker Viewer</h1>
-  <div id="log-status" class="space-y-2"></div>
-
-  <script>
-    fetch("../status.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const container = document.getElementById("log-status");
-
-        Object.entries(data).forEach(([filename, status]) => {
-          const statusColor = {
-            OK: "text-green-400",
-            MISSING: "text-red-400",
-            OUTDATED: "text-yellow-400"
-          }[status] || "text-gray-400";
-
-          const item = document.createElement("div");
-          item.innerHTML = `📄 <span class="${statusColor}">${filename}</span> — ${status}`;
-          container.appendChild(item);
-        });
-      })
-      .catch((err) => {
-        document.getElementById("log-status").innerText =
-          "❌ Gagal memuat status.json";
-        console.error(err);
-      });
-  </script>
+<body>
+  <h1>📁 Log Naratif Modular</h1>
+  <p class="note">Klik log untuk melihat konten JSON-nya. Harus disimpan di folder yang sama.</p>
+  <ul>
+    <li><a href="Story_resume.log.json">Story_resume.log.json</a></li>
+    <li><a href="System_protokol.json">System_protokol.json</a></li>
+    <li><a href="battle_log.json">battle_log.json</a></li>
+    <li><a href="character_log.json">character_log.json</a></li>
+    <li><a href="decision_log.json">decision_log.json</a></li>
+    <li><a href="diplomacy_log.json">diplomacy_log.json</a></li>
+    <li><a href="economy_log.json">economy_log.json</a></li>
+    <li><a href="event_log.json">event_log.json</a></li>
+    <li><a href="faction_log.json">faction_log.json</a></li>
+    <li><a href="inventory_log.json">inventory_log.json</a></li>
+    <li><a href="map_log.json">map_log.json</a></li>
+    <li><a href="protokol_log.json">protokol_log.json</a></li>
+    <li><a href="research_log.json">research_log.json</a></li>
+    <li><a href="timeline_log.json">timeline_log.json</a></li>
+    <li><a href="tracking_log.json">tracking_log.json</a></li>
+    <li><a href="Sistem_status_log.json">Sistem_status_log.json</a></li>
+    <li><a href="Status_karakter.json">Status_karakter.json</a></li>
+  </ul>  <hr>
+  <h3>📦 Tools Tambahan</h3>
+  <ul>
+    <li><a href="README.md">README.md</a></li>
+    <li><a href="Summary.md">Summary.md</a></li>
+    <li><a href="Log_checker.py">Log_checker.py</a></li>
+    <li><a href="story_log.twee">story_log.twee</a></li>
+  </ul>
 </body>
 </html>
